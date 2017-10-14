@@ -31,3 +31,19 @@ class Game:
             self.player1score += 1
         else:
             self.player2score += 1
+
+    def play(self):
+        print('The tennis game is started. Score:')
+        print(self.status(self.player1score, self.player2score))
+
+        while True:
+            self.play_a_pitch()
+            status = self.status(self.player1score, self.player2score)
+            print(status)
+            if 'win' in status:
+                break
+
+
+if __name__ == '__main__':
+    game = Game()
+    game.play()
