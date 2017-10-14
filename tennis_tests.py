@@ -4,7 +4,7 @@ from tennis import Game
 
 class TestTennisGame(unittest.TestCase):
     def testScoresList(self):
-        self.assertEqual(Game.SCORES, ['love', 'fifteen', 'thirty', 'advantage', 'deuce'])
+        self.assertEqual(Game.SCORES, ['love', 'fifteen', 'thirty'])
 
     def testStatus(self):
         game = Game()
