@@ -1,4 +1,4 @@
-import random
+from random import random
 
 
 class Game:
@@ -26,4 +26,8 @@ class Game:
         else:
             return "{0} {1}".format(self.SCORES[p1], self.SCORES[p2])
 
-
+    def play_a_pitch(self):
+        if random() < 0.5:
+            self.player1score += 1
+        else:
+            self.player2score += 1

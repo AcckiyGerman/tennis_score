@@ -44,6 +44,13 @@ class TestTennisGame(unittest.TestCase):
         for scores, status in table.items():
             self.assertEqual(game.status(scores[0], scores[1]), status)
 
+    def testPlayPitch(self):
+        game = Game()
+        for i in range(10):
+            p1 = game.player1score
+            p2 = game.player2score
+            game.play_a_pitch()
+            self.assertTrue(game.player1score == p1 + 1 or game.player2score == p2 + 1)
 
 if __name__ == "__main__":
     unittest.main()
