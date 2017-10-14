@@ -1,5 +1,6 @@
 import random
 
+
 class Game:
     SCORES = ['love', 'fifteen', 'thirty', 'advantage', 'deuce']
 
