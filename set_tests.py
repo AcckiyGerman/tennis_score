@@ -28,8 +28,15 @@ class TestTennisSet(unittest.TestCase):
             self.assertEqual(result, s.status())
 
     def testSetPlay(self):
-        pass
-
+        for i in range(10):
+            s = TennisSet()
+            result = s.play()
+            self.assertIn(result, ['player 1 win the set', 'player 2 win the set'])
+            # check the score count is correct
+            p1 = s.player1score
+            p2 = s.player2score
+            self.assertTrue(p1 >= 6 or p2 >= 6)
+            self.assertTrue(abs(p1 - p2) >= 0)
 
 if __name__ == "__main__":
     unittest.main()

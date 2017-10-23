@@ -31,4 +31,28 @@ class TennisSet:
         Starts the tennis set and loops over games, until the winner is defined.
         :return: status of the set
         """
-        pass
+        if 'win' in self.status():
+            return
+
+        print('\t\t The set is started.')
+
+        while True:
+            game = Game()
+            game_status = game.play()
+            print('\tGame is finished.')
+
+            if game_status == 'win player 1':
+                self.player1score += 1
+            elif game_status == 'win player 2':
+                self.player2score += 1
+
+            set_status = self.status()
+            print('\tSet status:', set_status)
+
+            if 'win' in set_status:
+                return set_status
+
+
+if __name__ == '__main__':
+    tennisSet = TennisSet()
+    tennisSet.play()
