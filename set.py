@@ -1,7 +1,7 @@
 from game import Game
 
 
-class Set:
+class TennisSet:
     """
     Representing the Tennis Set.
     Set consists of tennis games.
@@ -14,7 +14,17 @@ class Set:
 
     def score(self):
         """ :return: status of the set depending of both players scores"""
-        pass
+        p1 = self.player1score
+        p2 = self.player2score
+
+        if p1 >= 6 and p1 > p2 + 1:
+            return 'player 1 win the set'
+        elif p2 >= 6 and p2 > p1 + 1:
+            return 'player 2 win the set'
+        else:
+            s1 = p1 or 'love'  # in case when score = 0 we say 'love'
+            s2 = p2 or 'love'
+            return '{0} - {1}'.format(s1, s2)
 
     def play(self):
         """
