@@ -36,6 +36,7 @@ class TestTennisSet(unittest.TestCase):
             p1 = s.player1score
             p2 = s.player2score
             self.assertTrue(p1 >= 6 or p2 >= 6)
+            # TODO: rewrite this piece, it checks nothing
             self.assertTrue(abs(p1 - p2) >= 0)
 
 if __name__ == "__main__":
