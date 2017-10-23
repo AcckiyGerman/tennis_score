@@ -1,6 +1,14 @@
 from game import Game
 
 
+class SetError(Exception):
+    def __init__(self, value):
+        self.value = value
+
+    def __str__(self):
+        return repr(self.value)
+
+
 class TennisSet:
     """
     Representing the Tennis Set.
@@ -32,7 +40,7 @@ class TennisSet:
         :return: status of the set
         """
         if 'win' in self.status():
-            return
+            raise SetError('This set is over, start a new set please.')
 
         print('\t\t The set is started.')
 
