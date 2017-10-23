@@ -3,7 +3,7 @@ from set import TennisSet
 
 
 class TestTennisSet(unittest.TestCase):
-    def testSetScore(self):
+    def testSetStatus(self):
         set_table = {
             (0, 0): 'love - love',
             (1, 0): '1 - love',
@@ -25,7 +25,7 @@ class TestTennisSet(unittest.TestCase):
             s = TennisSet()
             s.player1score = score[0]
             s.player2score = score[1]
-            self.assertEqual(result, s.score())
+            self.assertEqual(result, s.status())
 
     def testSetPlay(self):
         pass

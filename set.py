@@ -12,7 +12,7 @@ class TennisSet:
         self.player1score = 0
         self.player2score = 0
 
-    def score(self):
+    def status(self):
         """ :return: status of the set depending of both players scores"""
         p1 = self.player1score
         p2 = self.player2score
