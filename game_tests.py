@@ -1,5 +1,5 @@
 import unittest
-from tennis import Game
+from game import Game
 
 
 class TestTennisGame(unittest.TestCase):
@@ -7,7 +7,6 @@ class TestTennisGame(unittest.TestCase):
         self.assertEqual(Game.SCORES, ['love', 'fifteen', 'thirty'])
 
     def testStatus(self):
-        game = Game()
         table = {
                  # equal score
                  (0, 0): 'love all',
@@ -42,7 +41,11 @@ class TestTennisGame(unittest.TestCase):
                  (6, 8): 'win player 2'}
 
         for scores, status in table.items():
-            self.assertEqual(game.status(scores[0], scores[1]), status)
+            game = Game()
+            game.player1score = scores[0]
+            game.player2score = scores[1]
+
+            self.assertEqual(game.status(), status)
 
     def testPlayPitch(self):
         game = Game()
@@ -51,6 +54,12 @@ class TestTennisGame(unittest.TestCase):
             p2 = game.player2score
             game.play_a_pitch()
             self.assertTrue(game.player1score == p1 + 1 or game.player2score == p2 + 1)
+
+    def testPlayGame(self):
+        for i in range(10):
+            game = Game()
+            result = game.play()
+            self.assertIn(result, ['win player 1', 'win player 2'])
 
 if __name__ == "__main__":
     unittest.main()

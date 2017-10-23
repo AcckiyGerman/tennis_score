@@ -1,6 +1,14 @@
 from random import random
 
 
+class GameError(Exception):
+    def __init__(self, value):
+        self.value = value
+
+    def __str__(self):
+        return repr(self.value)
+
+
 class Game:
     SCORES = ['love', 'fifteen', 'thirty']
 
@@ -8,8 +16,11 @@ class Game:
         self.player1score = 0
         self.player2score = 0
 
-    def status(self, p1, p2):
+    def status(self):
         """:returns status of the game depending of both players scores"""
+        p1 = self.player1score
+        p2 = self.player2score
+
         if p1 > 3 and p1 > p2 + 1:
             return 'win player 1'
         elif p2 > 3 and p2 > p1 + 1:
@@ -33,15 +44,18 @@ class Game:
             self.player2score += 1
 
     def play(self):
-        print('The tennis game is started. Score:')
-        print(self.status(self.player1score, self.player2score))
+        if 'win' in self.status():
+            raise GameError('This game is over, start a new game please.')
+
+        print('\n\t\t The tennis game is started. Score:')
+        print(self.status())
 
         while True:
             self.play_a_pitch()
-            status = self.status(self.player1score, self.player2score)
+            status = self.status()
             print(status)
             if 'win' in status:
-                break
+                return status
 
 
 if __name__ == '__main__':
