@@ -26,8 +26,15 @@ class Match:
         self.print_results()
 
     def print_results(self):
-        pass
-
+        sets = " ".join('%d-%d' % (s.player1score, s.player2score) for s in self.sets)
+        winner = 'Player 1' if self.player1score > self.player2score else 'Player 2'
+        match_message = """
+        ########## The Tennis Match is finished. ##########
+                    Sets: {sets}
+                    {winner} is the winner!
+        ###################################################
+        """.format(sets=sets, winner=winner)
+        print(match_message)
 
 if __name__ == '__main__':
     match = Match()

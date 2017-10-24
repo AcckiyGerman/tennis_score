@@ -15,9 +15,5 @@ class MatchTest(unittest.TestCase):
             if len(m.sets) == 2:
                 self.assertTrue(m.player1score == 0 or m.player2score == 0)
 
-    def testMatchPrintResults(self):
-        pass
-
-
 if __name__ == "__main__":
     unittest.main()
