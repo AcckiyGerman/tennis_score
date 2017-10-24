@@ -47,7 +47,7 @@ class Game:
         if 'win' in self.status():
             raise GameError('This game is over, start a new game please.')
 
-        print('\n\t\t The tennis game is started. Score:')
+        print('\n\tThe tennis game is started.')
         print(self.status())
 
         while True:

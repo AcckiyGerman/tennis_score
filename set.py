@@ -42,13 +42,11 @@ class TennisSet:
         if 'win' in self.status():
             raise SetError('This set is over, start a new set please.')
 
-        print('\t\t The set is started.')
+        print('\n\t\t The set is started.')
 
         while True:
             game = Game()
             game_status = game.play()
-            print('\tGame is finished.')
-
             if game_status == 'win player 1':
                 self.player1score += 1
             elif game_status == 'win player 2':
