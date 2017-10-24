@@ -4,7 +4,7 @@ from set import TennisSet
 
 
 class MatchTest(unittest.TestCase):
-    def matchPlayTest(self):
+    def testMatchPlay(self):
         for _ in range(10):
             m = Match()
             m.play()
@@ -15,7 +15,7 @@ class MatchTest(unittest.TestCase):
             if len(m.sets) == 2:
                 self.assertTrue(m.player1score == 0 or m.player2score == 0)
 
-    def matchPrintResultsTest(self):
+    def testMatchPrintResults(self):
         pass
 
 

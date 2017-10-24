@@ -13,8 +13,17 @@ class Match:
         self.sets = []
 
     def play(self):
-        print('#'*10, 'The Tennis Match is started.')
-        pass
+        print('#'*10, 'The Tennis Match is started.', '#'*10)
+        while self.player1score < 2 and self.player2score < 2:
+            s = TennisSet()
+            result = s.play()
+            self.sets.append(s)
+            if 'player 1 win' in result:
+                self.player1score += 1
+            elif 'player 2 win' in result:
+                self.player2score += 1
+
+        self.print_results()
 
     def print_results(self):
         pass
