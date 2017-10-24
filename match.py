@@ -13,6 +13,7 @@ class Match:
         self.sets = []
 
     def play(self):
+        """Starts the tennis match and loops over sets, until the winner is defined."""
         print('#'*10, 'The Tennis Match is started.', '#'*10)
         while self.player1score < 2 and self.player2score < 2:
             s = TennisSet()
@@ -26,6 +27,7 @@ class Match:
         self.print_results()
 
     def print_results(self):
+        """Prints pretty formatted results of the Tennis match."""
         sets = " ".join('%d-%d' % (s.player1score, s.player2score) for s in self.sets)
         winner = 'Player 1' if self.player1score > self.player2score else 'Player 2'
         match_message = """

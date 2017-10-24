@@ -38,12 +38,17 @@ class Game:
             return "{0} {1}".format(self.SCORES[p1], self.SCORES[p2])
 
     def play_a_pitch(self):
+        """Increment score points for the player, which has win the pitch."""
         if random() < 0.5:
             self.player1score += 1
         else:
             self.player2score += 1
 
     def play(self):
+        """
+        Starts the tennis game and loops over pitches, until the winner is defined.
+        :return: status of the game
+        """
         if 'win' in self.status():
             raise GameError('This game is over, start a new game please.')
 
